@@ -1,7 +1,7 @@
 import { bear } from '../src/hungrybear.js';
 
 describe('HungryBear', function() {
-  let fuzzy = bear;
+  let fuzzy = bear;                 
 
   beforeEach(function() {
     jasmine.clock().install();
