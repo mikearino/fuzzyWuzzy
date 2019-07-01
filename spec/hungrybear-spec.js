@@ -11,7 +11,7 @@ describe('HungryBear', function() {
     fuzzy.sleepiness = 0;
     fuzzy.setHunger();
     fuzzy.enrage();
-    fuzzy.goingToSleep();
+    fuzzy.hibernate();
     // fuzzy.setRampageMeter();
   });
 
@@ -44,10 +44,10 @@ describe('HungryBear', function() {
     expect(fuzzy.foodLevel).toEqual(15);
   });
 
-  // it('should get mauled if rage meter over 40', function() {
-  //   jasmine.clock().tick(40001);
-  //   expect(fuzzy.didYouGetMauled()).toEqual(true);
-  // });
+  it('should get mauled if rage meter over 40', function() {
+    jasmine.clock().tick(40001);
+    expect(fuzzy.didYouGetMauled()).toEqual(true);
+  });
 
   it('should go to sleep if sleepiness is over 15', function () {
     fuzzy.sleepiness = 16
@@ -56,13 +56,13 @@ describe('HungryBear', function() {
 
 
 
-  // it('should go to sleep if bears sleepiness is over15 ', function() {
-  //     fuzzy.hibernate()
-  //   jasmine.clock().tick(15001);
-  //   console.log(fuzzy.sleepiness)
-  //   expect(fuzzy.goingToSleep()).toEqual(true);
-  // });
-  //
+  it('should hibernate if bears sleepiness is over15 ', function() {
+    // fuzzy.hibernate()
+    jasmine.clock().tick(15001);
+    console.log(fuzzy.sleepiness)
+    expect(fuzzy.goingToSleep()).toEqual(true);
+  });
+
   // it ('should wake you up if ')
   // it('should maul you if the rage meter is 25 or above', function() {
     // jasmine.clock().tick(1)

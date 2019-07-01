@@ -42,9 +42,9 @@ export let bear = {
     }
   },
   hibernate: function() {
-    console.log("mike is a dickhead")
     const sleepInterval = setInterval(() => {
-      this.sleepinees ++;
+      this.sleepiness++;
+      console.log(this.sleepiness);
       if (this.goingToSleep() == true) {
         clearInterval(sleepInterval);
         return "ZZZzzzzzzz";
@@ -52,7 +52,7 @@ export let bear = {
     }, 1000);
   },
   goingToSleep: function() {
-    if (this.sleepiness > 15) {
+    if (this.sleepiness >= 15) {
       return true;
     } else {
       return false;
