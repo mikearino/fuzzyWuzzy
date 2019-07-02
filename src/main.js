@@ -2,16 +2,21 @@
 import './styles.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Triangle } from './triangle.js';
+import { bear } from './src/hungrybear.js';
 
 $(document).ready(function () {
-  debugger
-  // $('#ping-pong-form').submit(function (event) {
-  //   event.preventDefault();
-  //   var goal = $('#goal').val();
-  //   var output = pingPong(goal);
-  //   output.forEach(function (element) {
-  //     $('#solution').append('<li>' + element + '</li>');
-  //   });
-  // });
+
+  $('#bear').submit(function (event) {
+    event.preventDefault();
+    const garbageBear = new bear (foodLevel, timeBeforeHaul);//creates bearObject
+    const hungryMan = bear.setHunger();
+    const checkForDeath = bear.didYouDie();
+    const goinIn = bear.dive();
+    const headedToDump = bear.outOfTime();
+    var goal = $('#goal').val();
+    var output = pingPong(goal);
+    output.forEach(function (element) {
+      $('#solution').append('<li>' + element + '</li>');
+    });
+  });
 });
