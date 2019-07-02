@@ -27,6 +27,7 @@ $(document).ready(function () {
   $('#stop').click(function(event) {
     event.preventDefault();
     // const goinOut = grabGarbage();
+    bear.garbageGrab();
     bear.stopDiveInterval()
     // clearInterval(goinIn);
     // const stopTimer = grabGarbage
