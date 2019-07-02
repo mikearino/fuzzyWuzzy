@@ -1,11 +1,14 @@
+import $ from 'jquery';
+
 export let bear = {
   foodLevel: 10,
-  timeBeforeHaul: 0,
+  timeBeforeHaul: 5,
   // rageLevel: 0,
   // sleepiness: 0,
   setHunger: function() {
     const hungerInterval = setInterval(() => {
       this.foodLevel--;
+      $('#food').text(this.foodLevel);
       if (this.didYouDie() == true) {
         clearInterval(hungerInterval);
         return "You didn't eat enough trash!";
@@ -16,7 +19,7 @@ export let bear = {
     if (this.foodLevel > 0) {
       return false;
     } else {
-      return true;
+      return $('#food').text("YOU DEAD");
     }
   },
   feed: function(amount) {
@@ -26,9 +29,13 @@ export let bear = {
       return `The bear ate the ${food}! Food level goes up by ${amount}!`
     }
   },
+  foodGet: function () {
+
+  },
   dive: function() {
     const diveInterval = setInterval(() => {
-      this.timeBeforeHaul += 1;
+      this.timeBeforeHaul -= 1;
+      $('#solution').text(this.timeBeforeHaul);
       if (this.outOfTime() == true) {
         clearInterval(diveInterval);
         return "You got hauled away to the dump!";
@@ -36,11 +43,17 @@ export let bear = {
     }, 1000)
   },
   outOfTime: function () {
-    if (this.timeBeforeHaul >= 10) {
-      return true;
+    if (this.timeBeforeHaul <= 0) {
+      return $('#solution').text("You got Hauled away to the dump! "),
+      $('#food').text("YOU DEAD");
     } else{
       return false;
     }
+  },
+  grabGarbage: function () {
+    // const dumpsterInterval = setInterval => {
+    //   this.timeBeforeHaul = ;
+    // }
   }
 };
 
