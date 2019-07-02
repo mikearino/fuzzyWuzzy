@@ -3,6 +3,7 @@ import $ from 'jquery';
 export let bear = {
   foodLevel: 10,
   timeBeforeHaul: 5,
+  diveInterval: '',
   // rageLevel: 0,
   // sleepiness: 0,
   setHunger: function() {
@@ -33,7 +34,8 @@ export let bear = {
 
   },
   dive: function() {
-    const diveInterval = setInterval(() => {
+    this.diveInterval = setInterval(() => {
+      console.log(this.diveInterval);
       this.timeBeforeHaul -= 1;
       $('#solution').text(this.timeBeforeHaul);
       if (this.outOfTime() == true) {
@@ -50,11 +52,17 @@ export let bear = {
       return false;
     }
   },
-  grabGarbage: function () {
-    // const dumpsterInterval = setInterval => {
-    //   this.timeBeforeHaul = ;
-    // }
+  stopDiveInterval: function() {
+    console.log(this.diveInterval);
+    clearInterval(this.diveInterval);
+    this.timeBeforeHaul = 5;
+    $('#solution').text(this.timeBeforeHaul);
   }
+  // grabGarbage: function (timer) {
+  //   clearInterval(timer)
+  //   this.timeBeforeHaul = 5;
+  //   }
+  // }
 };
 
 
